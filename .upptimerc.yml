@@ -16,14 +16,10 @@ sites:
     check: "tcp-ping"
     url: mail.craftywebsite.com
     port: 587
-  # TEMPORARY: deliberately-closed port to prove alerts reach the phone. Remove after the test.
-  - name: Alert test
-    check: "tcp-ping"
-    url: mail.craftywebsite.com
-    port: 9
 
-# Outages open a GitHub issue assigned to Jamie; GitHub emails him and the
-# GitHub phone app pushes it.
+# Outages open a GitHub issue, but it is created with Jamie's own token, so
+# GitHub never notifies him about it. The real alert is the ntfy.sh push set in
+# the NOTIFICATION_CUSTOM_WEBHOOK(_URL) secrets - proven end to end 11 Sep 2026.
 assignees:
   - jamiespence-arch
 
